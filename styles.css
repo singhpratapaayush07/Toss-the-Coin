@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lobster&display=swap');
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FBF4E9;
+}
+
+.heading{
+  font-family: 'Lobster', cursive;
+  text-shadow: 4px 0 #232931;
+  font-size: 1.5rem;
+
+  color: skyblue;
+}
+
+.coin{
+
+  height: 15rem;
+  width: 15rem;
+  transform-style: preserve-3d; /* V Imp for image to overlap */
+
+}
+
+.coin div{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid black;
+  backface-visibility: hidden; /*Makes sure we see only head or tail at one time. Reason: when element will be rortated , backface will not be visible i.e element will be invisible for that time. */
+  position: absolute;
+}
+
+.heads{
+  background-color: skyblue;
+  background: url('https://jkscoinworld.com/wp-content/uploads/2018/05/floral-2.jpg');
+  background-size: contain;
+}
+
+.tails{
+  background-color: orange;
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS7Z-kVA3jKPg0bzDrkeZtUzwrT-stJTGeBBXjxkpxcEvHjFeR4ywQGZqdow5FIGkwl28&usqp=CAU');
+  background-size: contain;
+  transform: rotateY(-180deg); /*rotated face. But since its backface-visibility is hidden. This element will be invisible */
+}
+
+.animate-head{
+  animation: flipHeads; /*heads is in normal pos (0deg rotated) but tails is flipped(rotated 180deg) initially. Since flipping property makes the coin visible so each coin will get invisible alternatively */
+  animation-duration: 3s;
+  animation-fill-mode: forwards; /*animation will remain at the end state only and won't reset to inial state */
+}
+
+@keyframes flipHeads {
+  from{
+    transform: rotateY(0deg);
+  }
+  to{
+    transform: rotateY(1800deg); /*rotaing 10 times 180deg so, it will end on heads only after rotating 10 times 180 ie. 5 complete(360 deg) rotations */
+  }
+}
+
+.animate-tail{
+  animation: flipTails;
+  animation-duration: 3s;
+  animation-fill-mode: forwards; /*animation will remain at the end state only and won't reset to inial state */
+}
+
+@keyframes flipTails {
+  from{
+    transform: rotateY(0deg);
+  }
+  to{
+     transform: rotateY(1980deg); /*statrting from head (on top initially),rotaing 11 times 180deg so, it will end on heads only after rotating 10 times 180 ie. 5 complete(360 deg) + 1 half(180 deg) rotations. So at end tail will be on top */
+  }
+}
+
+ /* -----------------------  Button styling ------------------------- */
+ .button-container{
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+ }
+
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #668cff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin-top: 20px;
+}
+
+.button:active {
+  background-color: #3366ff;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#status{
+  font-family: 'Abril Fatface', cursive;
+  font-weight: 200;
+  text-shadow: 2px 0 #232931;
+  font-size: 1.5rem;
+  color: #1a53ff;
+}
+
+/* --------------------------- Responsive Screen --------------------------------------------- */
+@media screen and (max-width: 900px){
+  .heading{
+    text-shadow: 4px 0 #232931;
+    font-size: 1rem;
+    color: skyblue;
+  }
+
+  .coin{
+
+    height: 14rem;
+    width: 14rem;
+    transform-style: preserve-3d; /* V Imp for image to overlap */
+
+  }
+
+  .button {
+    padding: 12px 23px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #668cff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 7px #999;
+    margin-top: 1rem;
+  }
+
+
+
+  .button:active {
+    background-color: #3366ff;
+    box-shadow: 0 7px #666;
+    transform: translateY(4px);
+  }
+}
+
+@media screen and (max-width: 500px){
+  .heading{
+    text-shadow: 4px 0 #232931;
+    font-size: 1rem;
+    color: skyblue;
+  }
+
+  .coin{
+
+    height: 12rem;
+    width: 12rem;
+    transform-style: preserve-3d; /* V Imp for image to overlap */
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #668cff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #999;
+    margin-top: 1rem;
+  }
+
+
+
+  .button:active {
+    background-color: #3366ff;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+}

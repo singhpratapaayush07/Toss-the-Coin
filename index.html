@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Automatically web page responsive -->
+    <title>Coin flip</title>
+
+    <!-- Always call our css later than bootstrap (cdn) css. Otherwise our customized css will be overridden by bootstrap's css as it is called later -->
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="heading">
+      <h1>Toss Decider</h1>
+    </div>
+    <div class="coin">
+      <div class="heads">
+      </div>
+
+      <div class="tails">
+      </div>
+    </div>
+
+    <div class="button-container">
+
+      <button class="button">Flip Me</button>
+    </div>
+
+
+
+    <p><span id="status"></span></p>
+
+    <!-- import jQuery cdn first then source .js file otherwise
+    if opposite is done, our source js will be called (and jqueryy cdn not loaded till now), so it will not recognise jQuery used in it(In soirce js that we are making) -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+    <script src="index.js" charset="utf-8"></script>
+  </body>
+</html>
